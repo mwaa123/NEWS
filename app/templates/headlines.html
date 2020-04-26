@@ -1,0 +1,25 @@
+<!-- {%extends 'base.html'%}
+{%block content%}
+    <h3>GENERAL</h3>
+     <ul>
+        {% for  general in general%}
+            <a href="{{general.url}}"><li>{{ general.description}}</li></a>
+        {% endfor %}
+
+    </ul>
+    <h3>SPORTS</h3>
+    <ul>
+        {% for sport in sports%}
+            <li>{{ sport.description}}</li>
+        {% endfor %}
+
+    </ul>
+    <h3>TECHNOLOGY</h3>
+    <ul>
+        {% for technology in technology%}
+            <li>{{ technology.description}}</li>
+        {% endfor %}
+
+    </ul>
+
+{%endblock%} -->
