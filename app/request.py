@@ -14,12 +14,30 @@ def get_news(category): #top-headlines
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(category,api_key)
+    get_news_url = base_url.format(category,api_key) #'s://nhttpewsapi.org/v2/top-headlines?category={sports}&apiKey=5b909bf0340d4286a32ffc2a1dd28dc7'
 
-    with urllib.request.urlopen(get_news_url) as url:
+    with urllib.request.urlopen(get_news_url) as url:  # sports, 5b909bf0340d4286a32ffc2a1dd28dc7
         get_news_data = url.read()
-        get_news_response = json.loads(get_news_data)
-        news_results = None
+        get_news_response = json.loads(get_news_data) # {"key": "value"}
+        '''
+           get_news_response = {
+
+        "status": "ok",
+        "totalResults": 10,
+        -
+        "articles": [
+            -
+            {
+                -
+                "source": {
+                    "id": "bbc-news",
+                    "name": "BBC News"
+                },
+                "author": "BBC News",
+    '''
+
+
+        news_results = None # Response will be {} | None
 
         if get_news_response['articles']:
             news_results_list = get_news_response['articles']
@@ -50,7 +68,7 @@ def process_results(news_list):
         publishedAt =news_item.get('publishedAt')
         content = news_item.get('content')
 
-        news_object = News(source,title,author,description,url,urlToImage,publishedAt,content)
+        news_object = News(source,author,title,description,url,urlToImage,publishedAt,content)
 
         news_results.append(news_object)
 
@@ -159,12 +177,12 @@ def process_results(sources_list):
     for sources_item in sources_list:
         id = sources_item.get('id')
         name = sources_item.get('name')
+        description = sources_item.get('description')
         url = sources_item.get('url')
         category =sources_item.get('category')
         language = sources_item.get('language')
         country = sources_item.get('country')
-        description = sources_item.get('description')
-        sources_object = Sources(id,name,url,category,language,country,description)
+        sources_object = Sources(id,name,description,url,category,language,country)
 
         sources_results.append(sources_object)
 
@@ -173,4 +191,41 @@ def process_results(sources_list):
 
 
 
-    
+# the search form request
+
+def search_sources(sources_name):
+    search_sources_url = 'https://newsapi.org/v2/sources?country=us&category={}&apiKey={}&query={}'.format(api_key,sources_name)
+    with urllib.request.urlopen(search_sources_url) as url:
+        search_sources_data = url.read()
+        search_sources_response = json.loads(search_sources_data)
+
+        search_sources_results = None
+
+        if search_sources_response['articles']:
+            search_sources_list = search_movie_response['articles']
+            search_sources_results = process_results(search_movie_list)
+
+
+    return search_sources_results
+
+# id for the image and article display
+# def get_sources(id):
+#     get_sources_details_url = base_url.format(id,api_key)
+
+#     with urllib.request.urlopen(get_sources_details_url) as url:
+#         sources_details_data = url.read()
+#         sources_details_response = json.loads(sources_details_data)
+
+#         sources_object = None
+#         if sources_details_response:
+#             id = sources_details_response.get('id')
+#             name = sources_details_response.get('name')
+#             description = sources_details_response.get('description')
+#             url =sources_details_response.get ('url')
+#             category =sources_details_response.get ('category')
+#             language =sources_details_response.get ('language')
+#             country = sources_details_response.get('country')
+#             sources_object = Sources(id,name,description,url,category,language,country)
+
+
+#     return sources_object
