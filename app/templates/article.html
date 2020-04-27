@@ -4,19 +4,17 @@
 <div class="container">
 
     <!-- Poster background -->
-    <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{movie.poster}}) no-repeat center center">
+   
+    {% for sources in sources_list %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 sources-card">
+            <img src="{{ sources.title }}" alt="{{ sources.description }} title">
+            <li class="text-center">
+                <a href="/sources/{{sources.id}}">
+                    {{ sources.title|truncate(10)}}</a>
+            </li>
         </div>
 
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
-            <h3>{{ sources.title }}</h3>
-
-            <p class="url"> {{ sources.url}}</p>
-            <p class="description"> <b> {{ sources.description}}</b></p>
-
-
-        </div>
-    </div>
+    {% endfor %}
 
 </div>
 {% endblock %}
