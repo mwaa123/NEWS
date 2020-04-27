@@ -25,7 +25,9 @@
      <ul>
         {% for general in general%}
             <a href="{{general.url}}"><li>{{ general.name}}</li></a>
+            <div class="card">
             <p style="color: white;">{{general.description}}</p>
+            </div>
         {% endfor %}
 
     </ul>
