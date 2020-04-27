@@ -6,7 +6,7 @@ from .models import sources
 News = news.News
 
 # Getting api key
-api_key = app.config['NEWS_API_KEY']
+# api_key = app.config[]
 # Getting the news base url
 base_url = app.config["NEWS_API_BASE_URL"]
 
@@ -14,7 +14,7 @@ def get_news(category): #top-headlines
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(category,api_key) #'s://nhttpewsapi.org/v2/top-headlines?category={sports}&apiKey=5b909bf0340d4286a32ffc2a1dd28dc7'
+    get_news_url = base_url.format(category) #'s://nhttpewsapi.org/v2/top-headlines?category={sports}&apiKey=5b909bf0340d4286a32ffc2a1dd28dc7'
 
     with urllib.request.urlopen(get_news_url) as url:  # sports, 5b909bf0340d4286a32ffc2a1dd28dc7
         get_news_data = url.read()
@@ -78,7 +78,7 @@ def process_results(news_list):
 Everything = everything.Everything
 
 # Getting api key
-api_key = app.config['NEWS_API_KEY']
+# api_key = app.config['NEWS_API_KEY']
 # Getting the news base url
 evn_url = app.config["EVERYTHING_API_BASE_URL"]
 
@@ -139,7 +139,7 @@ def process_results(everything_list):
 Sources = sources.Sources
 
 # Getting api key
-api_key = app.config['NEWS_API_KEY']
+# api_key = app.config['NEWS_API_KEY']
 # Getting the news base url
 source_url = app.config["SOURCES_API_BASE_URL"]
 
@@ -147,7 +147,7 @@ def get_sources(category): #sources
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = source_url.format(category,api_key)
+    get_sources_url = source_url.format(category)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
