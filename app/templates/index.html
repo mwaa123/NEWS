@@ -9,7 +9,7 @@
 <!-- Content block -->
 
 <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
-<div class="container" style="font-family: 'Gotu', sans-serif;">
+<div class="container" style="font-family: 'Gotu', sans-serif;background-color: black;">
     <form>
         <input type="text" name="sources_query" placeholder="Search for a Sources" class="form-control">
         <input type="submit"  value="Submit" class="btn btn-default">
@@ -17,35 +17,35 @@
 
 
 
-        <h1 style="color:red;">{{ heading }}</h1>
+        <h1 style="color:red;text-align: center;">{{ heading }}</h1>
 
     <div class="row">
         <div class="col-md-4">
-    <h3>GENERAL</h3>
+    <h3 style="color: white;">GENERAL</h3>
      <ul>
         {% for general in general%}
             <a href="{{general.url}}"><li>{{ general.name}}</li></a>
-            <p>{{general.description}}</p>
+            <p style="color: white;">{{general.description}}</p>
         {% endfor %}
 
     </ul>
         </div>      
             <div class="col-md-4">   
-    <h3>SPORTS</h3>
+    <h3 style="color: white;">SPORTS</h3>
     <ul>
         {% for sport in sports%}
             <a href="{{sport.url}}"><li>{{ sport.name}}</li></a>
-            <p>{{sport.description}}</p>
+            <p style="color: white;">{{sport.description}}</p>
         {% endfor %}
 
     </ul>
             </div>
             <div class="col-md-4">
-    <h3>TECHNOLOGY</h3>
+    <h3 style="color: white;">TECHNOLOGY</h3>
     <ul>
         {% for technology in technology%}
             <a href="{{technology.url}}"><li>{{ technology.name}}</li></a>
-            <p>{{technology.description}}</p>
+            <p style="color: white;">{{technology.description}}</p>
         {% endfor %}
 
     </ul>
@@ -53,41 +53,41 @@
     </div>
     <div class="row">
             <div class="col-md-4">
-    <h3>HEALTH</h3>
+    <h3 style="color: white;">HEALTH</h3>
     <ul>
         {% for health in health%}
             <a href="{{health.url}}"><li>{{ health.name}}</li></a>
-            <p>{{health.description}}</p>
+            <p style="color: white;">{{health.description}}</p>
         {% endfor %}
 
     </ul>
             </div>
             <div class="col-md-4">
-    <h3>ENTERTAINMENT</h3>
+    <h3 style="color: white;">ENTERTAINMENT</h3>
     <ul>
         {% for entertainment in entertainment%}
             <a href="{{entertainment.url}}"><li>{{ entertainment.name}}</li></a>
-            <p>{{entertainment.description}}</p>
+            <p style="color: white;">{{entertainment.description}}</p>
         {% endfor %}
 
     </ul>
             </div>
             <div class="col-md-4">
-    <h3>SCIENCE</h3>
+    <h3 style="color: white;">SCIENCE</h3>
     <ul>
         {% for science in science%}
             <a href="{{science.url}}"><li>{{ science.name}}</li></a>
-            <p>{{science.description}}</p>
+            <p style="color: white;">{{science.description}}</p>
         {% endfor %}
 
     </ul>
             </div>
     </div>
-    <h3>BUSINESS</h3>
+    <h3 style="color: white;">BUSINESS</h3>
     <ul>
         {% for business in business%}
             <a href="{{business.url}}"><li>{{ business.name}}</li></a>
-            <p>{{business.description}}</p>
+            <p style="color: white;">{{business.description}}</p>
         {% endfor %}
 
     </ul>
