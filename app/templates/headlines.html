@@ -29,4 +29,33 @@
     </ul>
         </div>
 </div>
+    </ul>
+         <div class="col-md-4">
+    <h3>ENTERTAINMENT</h3>
+    <ul>
+        {% for entertainment in entertainment%}
+        <a href="{{entertainment.url}}"><li>{{ entertainment.description}}</li></a>
+        {% endfor %}
+
+    </ul>
+
+</ul>
+    <div class="col-md-4">
+<h3>BUSINESS</h3>
+    <ul>
+        {% for business in business%}
+        <a href="{{business.url}}"><li>{{business .description}}</li></a>
+        {% endfor %}
+
+    </ul>
+
+</ul>
+    <div class="col-md-4">
+<h3>HEALTH</h3>
+    <ul>
+        {% for health in health%}
+        <a href="{{health.url}}"><li>{{ health.description}}</li></a>
+        {% endfor %}
+
+    </ul>
 {%endblock%}
