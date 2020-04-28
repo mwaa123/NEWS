@@ -43,7 +43,7 @@ def headlines():
 
 
 
-@app.route('/search/<sources_name>', methods=['POST'])
+@app.route('/search/<sources_name>')
 def search(sources_name):
     '''
     View function to display the search results
