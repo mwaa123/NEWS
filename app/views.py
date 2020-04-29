@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from app import app
-from .request import get_news, get_everything,get_sources,search_sources
+from .request import get_news, get_everything,get_sources,search_sources,get_articles
 
 
 # Views
@@ -56,15 +56,11 @@ def search(sources_name):
 
 
 
-# @app.route('/movie/<int:id>')
-# def sources(id):
+@app.route('/article.html')
+def articles():
 
-#     '''
-#     View movie page function that returns the sources details page and its data
-#     '''
-#     sources = get_sources(id)
-#     title = f'{sources.title}'
-
-#     return render_template('article.html',title = title,sources = sources)
+    top_articles = get_articles()
+    print(top_articles)
+    return render_template('article.html',get_articles =top_articles)
 
 

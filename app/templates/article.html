@@ -1,20 +1,16 @@
 {% extends 'base.html'%}
 <!-- Content block -->
-<!-- {% block content %}
-<div class="container"> -->
+{% block content %}
+<!-- <h3 style="color: white;">SPORTS</h3> -->
+    <ul>
+        {% for top_articles in get_articles %}
+            <a href="{{top_articles.url}}"><li>{{ top_articles.title}}</li></a>
+            <p>{{top_articles.description}}</p>
+            <p>{{top_articles.publishedAt}}</p>
+        {% endfor %}
 
-    <!-- Poster background -->
-   
-    <!-- {% for sources in sources_list %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 sources-card">
-            <img src="{{ sources.title }}" alt="{{ sources.description }} title">
-            <li class="text-center">
-                <a href="/sources/{{sources.id}}">
-                    {{ sources.title|truncate(10)}}</a>
-            </li>
-        </div>
+    </ul>
+    
 
-    {% endfor %}
 
-</div>
-{% endblock %} -->
+{% endblock %} 

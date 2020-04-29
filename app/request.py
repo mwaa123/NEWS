@@ -4,7 +4,7 @@ from .models import news
 from .models import everything
 from .models import sources
 News = news.News
-
+# Articles = articles.Articles
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
 # Getting the news base url
@@ -207,25 +207,41 @@ def search_sources(sources_name):
 
 
     return search_sources_results
+# Getting api key
+api_key = app.config['NEWS_API_KEY']
+# Getting the news base url
+evn_url = app.config["EVERYTHING_API_BASE_URL"]
+def get_articles(): #articles
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_articles_url = evn_url.format(api_key)
 
-# id for the image and article display
-# def get_sources(id):
-#     get_sources_details_url = base_url.format(id,api_key)
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
 
-#     with urllib.request.urlopen(get_sources_details_url) as url:
-#         sources_details_data = url.read()
-#         sources_details_response = json.loads(sources_details_data)
+        articles_results = None
 
-#         sources_object = None
-#         if sources_details_response:
-#             id = sources_details_response.get('id')
-#             name = sources_details_response.get('name')
-#             description = sources_details_response.get('description')
-#             url =sources_details_response.get ('url')
-#             category =sources_details_response.get ('category')
-#             language =sources_details_response.get ('language')
-#             country = sources_details_response.get('country')
-#             sources_object = Sources(id,name,description,url,category,language,country)
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_results(articles_results_list)
 
 
-#     return sources_object
+    return articles_results
+
+def process_articles(articles_list):
+
+    articles_results = []
+    for articles_item in articles_list:
+        title = articles_item.get('title')
+        description = articles_item.get('description')
+        url = articles_item.get('url')
+        urlToImage = articles_item.get('urlToImage')
+        publishedAt =articles_item.get('publishedAt')
+        content = articles_item.get('content')
+        articles_object = Articles(title,description,url,urlToImage,publishedAt,content)
+
+        articles_results.append(articles_object)
+
+    return articles_results
