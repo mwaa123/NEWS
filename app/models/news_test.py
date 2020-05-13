@@ -4,7 +4,7 @@ News = news.news
 
 class NewsTest(unittest.TestCase):
     '''
-    Test Class to test the behaviour of the Movie class
+    Test Class to test the behaviour of the News class
     '''
 
     def setUp(self):

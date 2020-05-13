@@ -8,25 +8,21 @@
 
 This is a python app created using an API so that one can be able to trackdown missed news updates
 
-## Live link
+## Getting started
 
-
-
-##  Getting started
 * one must have  a computer running on either MacOS, Ubuntu  or windows operating system
 
 * Installed python3.6 the latest version
 
 ## Installation / Setup instruction
+
 * Open Terminal {Ctrl+Alt+T}
 
 * git clone "https://github.com/mwaa123/NEWS"
 
-* cd Quotes-app
+* cd News
 
 * code . or atom . based on the text editor you have.
-
-
 
 ## A user will be able to:
 
@@ -36,7 +32,6 @@ This is a python app created using an API so that one can be able to trackdown m
 
 * Click on an article and read it fully from the news source
 
-
 ## Technologies Used
 
 * google fonts
@@ -45,13 +40,15 @@ This is a python app created using an API so that one can be able to trackdown m
 * Bootstrap
 
 ## Known Bugs
+
 * Search button is not working well
 
-## Contact Information 
+## Contact Information
 
  [ruthwanjiramugo@gmail.com]
 
 ## License
+
 [LICENCE](/home/ruth/News/LICENCE.md)
 
 * Copyright (c) 2020 **Ruth Mugo**

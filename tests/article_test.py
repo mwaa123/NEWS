@@ -4,7 +4,7 @@ Articles = articles.Articles
 
 class ArticlesTest(unittest.TestCase):
     '''
-    Test Class to test the behaviour of the Movie class
+    Test Class to test the behaviour of the articles class
     '''
 
     def setUp(self):

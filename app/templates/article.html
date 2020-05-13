@@ -2,15 +2,17 @@
 <!-- Content block -->
 {% block content %}
 <!-- <h3 style="color: white;">SPORTS</h3> -->
+<div class="container" style="background-color: black;">
+             <h1 style="text-align: center;color: rebeccapurple;"> ARTICLES</h1>
     <ul>
         {% for top_articles in get_articles %}
             <a href="{{top_articles.url}}"><li>{{ top_articles.title}}</li></a>
-            <p>{{top_articles.description}}</p>
+            <p style="color: white;">{{top_articles.description}}</p>
             <p>{{top_articles.publishedAt}}</p>
         {% endfor %}
 
     </ul>
     
 
-
+</div>
 {% endblock %} 

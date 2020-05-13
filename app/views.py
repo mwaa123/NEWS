@@ -16,7 +16,6 @@ def index():
     health = get_sources('health')
     science =get_sources('science')
     business = get_sources('business')
-    # import pdb; pdb.set_trace()
     search_sources = request.args.get('sources_query')
 
     if search_sources:
@@ -43,16 +42,16 @@ def headlines():
 
 
 
-@app.route('/search/<sources_name>')
-def search(sources_name):
-    '''
-    View function to display the search results
-    '''
-    sources_name_list = sources_name.split(" ")
-    sources_name_format = "+".join(sources_name_list)
-    searched_sources = search_sources(sources_name_format)
-    title = f'search results for {sources_name}'
-    return render_template('search.html',sources = searched_sources)
+# @app.route('/search/<sources_name>')
+# def search(sources_name):
+#     '''
+#     View function to display the search results
+#     '''
+#     sources_name_list = sources_name.split(" ")
+#     sources_name_format = "+".join(sources_name_list)
+#     searched_sources = search_sources(sources_name_format)
+#     title = f'search results for '{sources_name}
+#     return render_template('search.html',sources = searched_sources)
 
 
 
